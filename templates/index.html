@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 Student Result Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="study_hours" placeholder="Study Hours" required>
+        <input type="number" name="attendance" placeholder="Attendance (%)" required>
+        <input type="number" name="internal" placeholder="Internal Marks" required>
+        <input type="number" name="assignment" placeholder="Assignment Marks" required>
+
+        <button type="submit">Predict Result</button>
+
+    </form>
+
+    {% if prediction_text %}
+        <h2 class="result">{{ prediction_text }}</h2>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
